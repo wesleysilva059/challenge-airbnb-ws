@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Aluguéis por Temporada, Acomodações, Experiências e Lugares - Airbnb">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+    <title>Aluguéis por Temporada, Acomodações, Experiências e Lugares - Airbnb</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/all.css" />
+</head>
+<body onresize="onResizeEvent()" onscroll="onScrollEvent(); onNavbarScrollEvent();">
+    <header class="alert alert-light alert-top text-center" role="alert">
+        <div class="container">
+            Site sem vinculo ao AirBNB, feito somente para fins de estudo
+        </div>
+    </header>
+
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img style="width: 40%" src="img/logo-airbnb.jpg">
+            </a>
+            
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mr-3">
+                    <li class="nav-item mr-3 active">
+                        <a class="nav-link rounded-pill" href="/">Home</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link rounded-pill" href="#">Contato</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link rounded-pill" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item btn border border-light shadow rounded-pill">
+                        <a href="#" class="text-dark">Cadastre-se</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav id="navbar-fixed" class="navbar navbar-expand-lg navbar-light fixed-top d-none bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img style="width: 30%" src="img/logo-airbnb.jpg">
+            </a>
+            
+            <div class="d-flex justify-content-end">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mr-3 active">
+                        <a class="nav-link rounded-pill" href="/">Home</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link rounded-pill" href="#">Contato</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link rounded-pill" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item btn border border-light shadow rounded-pill">
+                        <a href="#" class="text-dark">Cadastre-se</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="filters" class="shadow-sm bg-white rounded d-flex justify-content-between mt-3 mb-5">
+            <section class="d-flex justify-content-left w-100">
+                <div class="input-group-field pl-4">
+                    <div class="input-field mt-2 mb-2 mr-0">
+                        <label class="label-search mb-0">LOCALIZAÇÃO</label>
+                        <input class="border-0 mr-2" id="filterText" type="text" name="textFilter" onchange="reloadCardsByFilter()" placeholder="Para onde você vai?">
+                    </div>
+                </div>
+                <div class="input-group-field pl-4 mr-0">
+                    <div class="input-field mt-2 mb-2 mr-0">
+                        <label class="label-search mb-0">CHECK-IN/CHECKOUT</label>
+                        <input class="border-0" type="date" placeholder="Insira as datas">
+                    </div>
+                </div>
+                <div class="input-group-field pl-4 mr-0">
+                    <div class="input-field no-border mt-2 mb-2 mr-0">
+                        <label class="label-search mb-0">HÓSPEDES</label>
+                        <input class="border-0" type="text" placeholder="Insira o número de hóspedes">
+                    </div>
+                </div>
+            </section>
+            <div class="d-flex justify-content-center align-self-center m-2 h-50">
+                <a href="#" class="btn btn-airbnb-radial" type="submit" onmousemove="onMouseMoveEvent(event)" onclick="reloadCardsByFilter()"><i class="fas fa-search"></i> Buscar</a>
+            </div>
+        </section>
+
+        <section id="cards">
+            <div class="row d-flex justify-content-center">
+                <div id="loader" class="spinner-border"><span class="sr-only">Carregando...</span></div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="fixed-bottom text-muted footer">
+      <h4>
+        Desenvolvido por <a href="https://linkedin.com/in/felipefadul" target="_blank">Wesley Silva</a>
+      </h4>
+      <section>
+        <a href="https://www.linkedin.com/in/wesleysilva-dev/" target="_blank"><i class="zmdi zmdi-linkedin card-icons"></i></a>
+        <a href="https://github.com/wesleysilva059" target="_blank"><i class="zmdi zmdi-github card-icons"></i></a>
+      </section>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/navbar.js"></script>
+</body>
+</html>
